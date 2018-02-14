@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Accordion</title>
+        <style>
+            .hide {
+                display: none;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>Accordion</h1>
+        <ol id="accordion"></ol>
+        
+        <script type="text/javascript">
+            
+           var meals = [
+                {
+                    "meat": "beef",
+                    "desert": "apple pie"
+                },
+                {
+                    "meat": "turkey",
+                    "desert": "cookie"
+                },
+                {
+                    "meat": "chicken",
+                    "desert": "cherry pie"
+                }
+            ]
+
+            var menu = meals;
+            var elms = " ";
+            var ul = document.getElementById('accordion');
+            var li = ul.getElementsByClassName('meat');
+                    
+            menu.map(function(item, index){
+                item.meat += "<ul class = 'hide'>" + "<li>" + item.desert + "</li>" + "</ul>"
+                elms += "<li class='meat'>" + item.meat + "</li>";
+                ul.innerHTML = elms;
+            });
+            
+            
+            
+            for (i=0; i < li.length; i++) {
+                li[i].addEventListener('click' , function(){
+                    
+                    var list = this.getElementsByTagName('ul')[0];
+                    var listItem = list.getElementsByTagName('li')[0];                    
+                    
+                    if (list.classList.contains('hide')) {
+                        list.classList = ' ';
+                    }
+                    else {
+                        list.classList = 'hide';
+                    }
+                });
+                
+            }
+            
+        </script>
+        
+    </body>
+</html>

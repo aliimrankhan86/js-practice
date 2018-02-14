@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Carousel</title>
+        
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #carousel-container {
+                overflow: scroll;
+                width: 500px;
+                margin: 0 auto;
+                position: relative;
+                height: 200px;
+            }
+            #left, #right {
+                color: black;
+                position: absolute;
+                top: 90px;
+                z-index: 1;
+                display: inline;
+            }
+            #left {
+                left: 0px;   
+            }
+            #right {
+                right: 0;
+            }
+            
+            ul {
+                /* background: blue; */
+                position: absolute;
+                top 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 200px;
+                width: 2040px;
+                overflow: hidden;
+            }
+            li {
+                display: inline-block;
+                float: left;
+                margin: 0 0px 0 0;
+                width: 500px;
+                height: 200px;
+                text-align: center;
+                position: relative;
+                font-size: 3rem;
+            }
+            
+            li.red {
+                background: red;
+            }
+            li.green {
+                 background: green;
+            }
+            li.yellow {
+                background: yellow;
+            }
+            li.blue {
+                background: blue;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        <h1></h1>
+        <div id="carousel-container">
+            
+            <a href="#" id="left">Left</a>
+            <a href="#" id="right">Right</a>
+            
+            <ul id="carousel">
+                <li class="item red">Red </li>
+                <li class="item green">Green </li>
+                <li class="item yellow">Yellow </li>
+                <li class="item blue">Blue</li>
+            </ul>
+        </div>
+        
+        <script type="text/javascript">
+            
+            function carouselStart() {
+                var leftbtn = document.getElementById('left');
+                var rightbtn = document.getElementById('right');
+                var carousel = document.getElementById('carousel');
+                var totalItems = carousel.getElementsByTagName('li').length - 1;
+                console.log(totalItems);
+                
+                var currentIndex = 0;
+                
+                leftbtn.addEventListener('click', function(e){
+                    e.preventDefault();
+                    
+                    if (totalItems === currentIndex) {
+                        return;
+                    }
+                        
+                    var leftLoc = carousel.style.left; 
+                    leftLoc = leftLoc ? (parseInt(leftLoc)-500) : -500;
+                    carousel.style.left = leftLoc + 'px';
+                    
+                    
+                    currentIndex++;
+                    //console.log(currentIndex++);
+                    
+                });
+                
+                rightbtn.addEventListener('click', function(e){
+                    
+                    if (currentIndex === 0) {
+                        return;
+                    }
+                    
+                    e.preventDefault();
+                    var rightLoc = carousel.style.left;
+                    rightLoc = rightLoc ? (parseInt(rightLoc) + 500) : 0;
+                    console.log(rightLoc);
+                    carousel.style.left = rightLoc + 'px';
+                    
+                    currentIndex--;
+                       
+                });
+                
+            };
+            
+            carouselStart();
+            
+        </script>
+        
+    </body>
+</html>
