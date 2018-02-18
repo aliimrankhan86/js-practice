@@ -89,14 +89,19 @@
                     var myCarousel = document.getElementById('carousel');
                     var myCarouselStyle = myCarousel.style.left;
                     var leftClick = document.getElementById('left');
-                    leftClick.addEventListener('click', function left() {
-                        myCarouselStyle = myCarouselStyle ? parseInt(myCarouselStyle) : -500 + "px";
-                        function moveLeft() {
-                            console.log(myCarouselStyle);
-                            myCarousel.style.left += myCarouselStyle;
-                        }
-                        moveLeft();
-                    });
+                    var lengthOfItems = document.getElementsByTagName('li').length - 1;
+                    console.log(lengthOfItems);
+                    var indexNo = 0;
+                    
+                    leftClick.addEventListener('click', function() {
+                            if (indexNo === lengthOfItems) {
+                                return;
+                            }
+                            myCarouselStyle = (myCarouselStyle) ? (parseInt(myCarouselStyle)-500) : -500;
+                            myCarousel.style.left = myCarouselStyle + 'px';
+                            // console.log(myCarouselStyle + 'px');
+                            indexNo++;
+                        });
                     
 
                     
