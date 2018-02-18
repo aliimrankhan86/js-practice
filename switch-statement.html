@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Switch Statement</title>    
+    </head>
+    <body>
+        <h1>Switch Statements examples</h1>
+        <p id='info'></p>
+        <p id='today'>Today is </p>
+        <script type="text/javascript">
+           
+            let car = "Audi";
+            
+            switch (car) {
+                case "BMW":
+                    document.getElementById('info').innerHTML = 'The car I have is ' + car;
+                    break;
+                case "Audi":
+                    document.getElementById('info').innerHTML = 'The car I have is ' + car;
+                    break;
+            }
+            
+            
+            var today = new Date().getDay();
+            today = today + 2;
+            switch(today) {
+                case 0:
+                    document.getElementById('today').innerHTML += "Sunday";
+                    break;
+                case 1:
+                    document.getElementById('today').innerHTML +=
+                    "Monday";    
+                default:
+                    document.write('I dont know, what day is today');
+                    break;
+            }
+            
+        </script>
+        
+    </body>
+</html>

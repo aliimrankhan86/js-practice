@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Carousel</title>
+        
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #carousel-container {
+                overflow: scroll;
+                width: 500px;
+                margin: 0 auto;
+                position: relative;
+                height: 200px;
+            }
+            #left, #right {
+                color: black;
+                position: absolute;
+                top: 90px;
+                z-index: 1;
+                display: inline;
+            }
+            #left {
+                left: 0px;   
+            }
+            #right {
+                right: 0;
+            }
+            
+            ul {
+                /* background: blue; */
+                position: absolute;
+                top 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 200px;
+                width: 2040px;
+                overflow: hidden;
+            }
+            li {
+                display: inline-block;
+                float: left;
+                margin: 0 0px 0 0;
+                width: 500px;
+                height: 200px;
+                text-align: center;
+                position: relative;
+                font-size: 3rem;
+            }
+            
+            li.red {
+                background: red;
+            }
+            li.green {
+                 background: green;
+            }
+            li.yellow {
+                background: yellow;
+            }
+            li.blue {
+                background: blue;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        <h1></h1>
+        <div id="carousel-container">
+            
+            <a href="#" id="left">Left</a>
+            <a href="#" id="right">Right</a>
+            
+            <ul id="carousel">
+                <li class="item red">Red </li>
+                <li class="item green">Green </li>
+                <li class="item yellow">Yellow </li>
+                <li class="item blue">Blue</li>
+            </ul>
+        </div>
+        
+        <script type="text/javascript">
+           
+            var carousel = {
+                init: function() {
+                    var myCarousel = document.getElementById('carousel');
+                    var myCarouselStyle = myCarousel.style.left;
+                    var leftClick = document.getElementById('left');
+                    leftClick.addEventListener('click', function left() {
+                        myCarouselStyle = myCarouselStyle ? parseInt(myCarouselStyle) : -500 + "px";
+                        function moveLeft() {
+                            console.log(myCarouselStyle);
+                            myCarousel.style.left += myCarouselStyle;
+                        }
+                        moveLeft();
+                    });
+                    
+
+                    
+                    
+                }
+            }
+            
+            carousel.init();
+
+            
+            
+        </script>
+        
+    </body>
+</html>
