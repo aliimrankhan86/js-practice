@@ -5,17 +5,15 @@
     </head>
     <body>
         <h1>Arguments</h1>
-        
-        
         <script type="text/javascript">
-            function test(name, age, langs) {
-                if (arguments,length === 0) {
-                    console.log('No arguments provided!');
+            (function test(name, age, langs) {
+                if (arguments.length === 0) {
+                    console.log('please provide args');
+                    return;
                 }
-            }
-            
-            test('Ali Khan', 31, English);
+                langs = langs || 'English';
+                document.write('My name is ' + name + ' , my age is ' + age + ' and I speak ' + langs);
+            }('Ali Khan', 31));
         </script>
-        
     </body>
 </html>
