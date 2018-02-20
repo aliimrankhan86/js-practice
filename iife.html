@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IIFE</title>
+    </head>
+    <body>
+        <h1>IIFE - Immediate Invoked Function Expression</h1>
+        <script type="text/javascript">
+            
+            function statement() {
+                console.log('This is standard function Statement!');
+            }
+            statement(); // Function statement
+            
+            var expression = function() {
+                console.log('This is function expression!');   
+            }
+            expression(); // Function Expression
+            
+            (function(){
+                console.log('This is IIFE - Immediate Invoked Function Expression');
+            }()); // IIFE - without callback function.
+            
+            (function(){
+                console.log('This is IIFE - Immediate Invoked Function Expression');
+            }( statement() )); // IIFE - with callback function.
+            
+
+        </script>
+    </body>
+</html>
