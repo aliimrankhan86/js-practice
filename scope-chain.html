@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<title>Scope Chain</title>
+    <!-- Scripts -->
+    <script>
+        
+        function a() {
+            var name = "Ali";
+            console.log(name);
+            b();
+        }
+
+        function b() {
+            var name = "khan";
+            console.log(name);
+            c();
+        }
+        
+        function c() {
+            console.log(name);
+        }
+        
+        var name = "hello";
+        
+        a();
+        
+        
+        
+    </script>
+    
+</head>
+<body>
+    <h1>Js Scope Chain</h1>
+</body>
+</html>

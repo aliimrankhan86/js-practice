@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title>Hoisting</title>
+    <!-- Scripts -->
+    <script>
+        
+        console.log(a); 
+        /* This will return undefined because the parsar doesnt the value as yet. 
+           However In Global execution stack JS knows the variable exist but it hasnt allocated a memory space to it as yet.
+        */
+        
+        console.log(myName()); 
+        /* In global execution context - creation phase JS stores the function into memory space 
+           and Allows to access functions before they are defined.
+        */
+        
+        var a = "I am ali";
+        
+        function myName() {
+            console.log('Function is working!');
+        }
+        console.log(a);
+        /* Now console will show the real value of var a */
+        
+    
+        console.log(test());
+        console.log(z);
+        /* If you console.log a var / function which isnt mentioned at all then console will say 
+        the function / var is not defined instead of undefined */
+        
+       
+        
+        
+    </script>
+    
+</head>
+<body>
+    <h1>JS Hoisting</h1>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<title>JSON and Objects practice</title>
+    <!-- Scripts -->
+    
+</head>
+<body>
+    <h1>JSON and Objects Practice</h1>
+    <div id="employees-name">
+    </div>
+</body>
+    <script>
+       var obj = { "employees" : [
+            { "firstName":"John" , "lastName":"Doe" },
+            { "firstName":"Anna" , "lastName":"Smith" },
+            { "firstName":"Jane" , "lastName":"Doe" },
+            { "firstName":"Peter" , "lastName":"Jones" }]
+        }; 
+
+        function infoRetriever(data) {
+            var constructedHtml = '';
+            data.forEach(function(value,index){
+                constructedHtml += "<p class='hello'> The name of the employees are " + value.firstName+' ' + value.lastName + "</p>";
+            })
+            document.getElementById('employees-name').innerHTML = constructedHtml;
+        }
+        infoRetriever(obj.employees);
+    </script>
+    
+</html>

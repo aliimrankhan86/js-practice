@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Arguments in Javascript</title>
+    <script type="text/javascript">
+        
+        console.log('Arguments starts here !');
+        
+        function person(firstname, lastname, language) {
+            if (arguments.length === 0) {
+                console.log('Please provide arguments to execute');
+            }
+            
+            language = language || 'english';
+            console.log(firstname);
+            console.log(lastname);
+            console.log(language);
+            // console.log(arguments.length + '  ------------  ');
+        }
+        
+        person(); // function invoking with no paraeters
+        person('Ali'); // Function invoking with single parameter
+        person('Ali','Khan'); // Function invoking with double parameters
+        person('Ali','Imran', 'es'); // Function invoking with all parameters
+        
+        
+        console.log('Arguments ends here !');
+        
+        
+
+        
+        console.log('This starts here !');
+        
+        console.log(this); // this is window globally
+        
+        function personInfo() {
+            console.log(this);
+        }
+        personInfo(); // this points to window in function declaration
+        
+        
+        var personInfoNew = function() {
+            console.log(this);
+        }
+        personInfoNew();  // this points to window to function expression
+        
+        var info = {
+            name: 'Ali Khan',
+            job: function() {
+                console.log(this); // this points to parent object when inside a method
+            }
+        }
+        info.job();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        console.log('Array starts here !');
+        
+        var newArg = [
+            'Aizah Khan',
+            false,
+            01,
+            function(name) {
+                console.log ('Greetings '+ name); 
+            },
+            [
+                1,2,3,4,5
+            ],
+            {
+                name: 'Ali Imran Khan'
+            }
+        ]
+        
+        newArg[3](newArg[5].name);
+        
+        console.log('Array ends here !');
+        
+    </script>
+    
+</head>
+<body>
+
+</body>
+</html>
