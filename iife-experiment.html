@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IIFE - Experiment</title>
+    </head>
+    <body>
+        <h1></h1>
+        <script type="text/javascript">
+            
+            (function(){
+                console.log('IIFE is done running!');
+            }(myName()));
+            
+            function myName(name) {
+                  console.log('myName is running!');
+                  name = "Ali";
+                  return document.querySelector('h1').innerHTML = name;
+            };
+        </script>
+    </body>
+</html>
