@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IIFE and Safe Code</title>
+    </head>
+    <body>
+        <h1 id ="myInfo">IIFE and Safe Code</h1>
+        <script type="text/javascript">
+            
+            (function(globalObj, name){
+                globalObj.wifename = "Nazish Ali Khan"
+                //console.log('My Name is ' + '<br />' + + name + 'and my wife name is ' + globalObj.wifename);
+                return document.querySelector('h1').innerHTML = 'My name is ' + name +
+                ', My wife name is ' + globalObj.wifename;
+            }(window, 'Ali Khan')); 
+            
+
+        </script>
+    </body>
+</html>
