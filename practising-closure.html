@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practising Closure</title>
+    </head>
+    <body>
+        <h1 id ="fullname">Practising Closure</h1>
+        <script type="text/javascript">
+
+            function fullName(fname) {
+                return function (mname, lname) {
+                    console.log(fname + ' ' + mname + ' ' + lname);
+                    document.getElementById('fullname').innerHTML = fname + ' ' + mname + ' ' + lname;
+                    /* It remembers the fname because of scope chaining and memory reference of 
+                    it's parent function */
+                }
+            }
+
+            var myfullname = fullName('Ali');
+            myfullname('Imran', 'Khan');
+
+        </script>
+    </body>
+</html>
