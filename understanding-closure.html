@@ -5,15 +5,13 @@
     </head>
     <body>
         <h1 id ="myInfo">Understanding Closure </h1>
-        <p id ="closure-1">Closure Method 1 = </p>
-        <p id ="closure-2">Closure Method 2 = </p>
+
 
         <script type="text/javascript">
             
             function greetings ( anygreeting ) {
                 return function(name) {
                     console.log (anygreeting + ' ' + name);
-                    document.getElementById('closure-1').innerHTML += anygreeting + ' ' + name;
                 }
             }
             
@@ -27,13 +25,11 @@
             /* Method 2 of Closure */
             var newGreet = greetings('Welcome');
             newGreet('Ali Imran Khan');
-            // document.getElementById('closure-2').innerHTML += newGreet('Ali Imran Khan');
             
-            /* Like above any function is to return you value. newGreet is equal to 
-               greetings function  */
-
-    
-            
+            /* In the first line, newGreet is equal to greetings function's inner function,
+               then in the second line we are invoking the inner function () and passing them
+               arguments. In this case, it is Ali Imran Khan */
+   
         </script>
     </body>
 </html>
