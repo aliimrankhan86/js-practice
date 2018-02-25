@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Understanding closure</title>
+    </head>
+    <body>
+        <h1 id ="myInfo">Understanding Closure </h1>
+        <p id ="closure-1">Closure Method 1 = </p>
+        <p id ="closure-2">Closure Method 2 = </p>
+
+        <script type="text/javascript">
+            
+            function greetings ( anygreeting ) {
+                return function(name) {
+                    console.log (anygreeting + ' ' + name);
+                    document.getElementById('closure-1').innerHTML += anygreeting + ' ' + name;
+                }
+            }
+            
+            /* Method 1 of Closure */
+            greetings('Hello')('Ali');
+
+            /* Any function is meant to return you a value but in the return if it sees another function 
+            then only gets you to that point without invoking the inner function. In order to invoke
+            the inner function you need to define () to invoke it. */
+            
+            /* Method 2 of Closure */
+            var newGreet = greetings('Welcome');
+            newGreet('Ali Imran Khan');
+            // document.getElementById('closure-2').innerHTML += newGreet('Ali Imran Khan');
+            
+            /* Like above any function is to return you value. newGreet is equal to 
+               greetings function  */
+
+    
+            
+        </script>
+    </body>
+</html>
