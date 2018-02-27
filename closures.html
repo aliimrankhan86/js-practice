@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Carousel</title>
+
+    <body>
+        
+        <h1 id="closure"></h1>
+        <button id="btn">Button</button>
+            
+        <script type="text/javascript">
+           
+            // Closure Practice 1
+
+            function parentFunc(fname) {
+                var btn = document.getElementById('btn');
+                btn.addEventListener('click', function() {
+                    document.getElementById('closure').innerHTML = fname + ' ' + 'Khan';
+                });
+            }
+
+            parentFunc('Ali');
+
+            // Closure Practice 2
+            function outerFunction(outerpara) {
+                return function(innerpara) {
+                    console.log(outerpara + ' ' + innerpara);
+                }
+            }
+
+            outerFunction('Nazish')('Khan');
+
+
+            // Closure Practice 3
+            function fatherFunc(name) {
+                return function (age) {
+                    console.log(name + ' is ' + age + ' years old' );
+                }
+            }
+
+            var info = fatherFunc('Anaya');
+            info(5);
+            
+        </script>
+        
+    </body>
+</html>
