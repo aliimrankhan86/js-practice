@@ -16,6 +16,12 @@
                     arr.push(function() {
                         document.getElementsByTagName('p')[0].innerHTML += i + '<br>';
                     })
+                    /* We aren't invoking the above function thus people often think
+                    that the value will iterate each time, however that is not the case
+                    After the loop finishes its iteration, the inside function remembers
+                    it's parent loop's variable final value before it ended
+                    which is why all the calls are returning same value which is 3  */
+
                 }
 
                 return arr;
