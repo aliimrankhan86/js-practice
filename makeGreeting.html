@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Make Greeting Closure</title>
+     </head>   
+    <body>
+       <h1>Make Greeting Closure</h1>
+       <script type="text/javascript">
+        
+        function makeGreetings(language) {
+            return function(firstname, lastname) {
+
+                if (language === 'en') {
+                    console.log('Hello ' + firstname + ' ' + lastname);
+                    var newPara = document.createElement('h2');
+                    newPara.classList.add('newElement');
+                    newPara.innerHTML = 'Hello ' + firstname + ' ' + lastname;
+                    document.body.appendChild(newPara);
+                }
+
+                if (language === 'es') {
+                    console.log('Hola ' + firstname + ' ' + lastname);
+                    var newPara = document.createElement('h2');
+                    newPara.classList.add('newElement');
+                    newPara.innerHTML = 'Hola ' + firstname + ' ' + lastname;
+                    document.body.appendChild(newPara);
+                }
+            }
+        } // makeGreetings
+
+        var greetEnglish = makeGreetings('en')('Ali', 'Khan');
+        var greetSpanish = makeGreetings('es')('Nazish', 'Khan');
+
+
+        </script>
+        
+    </body>
+</html>
