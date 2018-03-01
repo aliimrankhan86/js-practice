@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carousel Practice</title>
+
+    <body>
+        
+        <h1>Closure Practice </h1>
+        <p></p>           
+        <script type="text/javascript">
+            
+            function one() {
+
+                var emptyList = [];
+
+                for (i = 0; i < 5; i++) {
+                    emptyList.push (
+                        function(index) {
+                            console.log(i);
+                        }
+                        /* Remember we are not invoking this function, we creating it
+                        and putting it into memory location of emptyList i.e. emptyList[0] */
+                    )
+                }
+                return emptyList; // After the loop is finished we are return the commplete array
+            }
+
+            var functionFirst = one();
+            /* functionFirst will contain value of once one() is completed and returned */
+            /* console.log(functionFirst) - will show you an array with 5 functions total, 
+            one in each memory location */
+
+            functionFirst[0](); /* Invoking function sitting in each memory location of the array */
+            functionFirst[1](); /* Invoking function sitting in each memory location of the array */
+            functionFirst[2](); /* Invoking function sitting in each memory location of the array */
+            functionFirst[3](); /* Invoking function sitting in each memory location of the array */
+            functionFirst[4](); /* Invoking function sitting in each memory location of the array */
+
+
+
+            console.log('Closure example with self-invoking function');
+
+            function otherClosure() {
+                var myList = [];
+
+                for (var i = 0; i < 5; i++) {
+                    myList.push(
+                        (function() {
+                            console.log(i);
+                        }(i))
+                    );
+                }
+                return myList;
+            }
+
+            var selfInvokingFunction = otherClosure();
+
+
+
+
+            
+        </script>
+        
+    </body>
+</html>
