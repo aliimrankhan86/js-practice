@@ -10,7 +10,6 @@
         <script type="text/javascript">
             
             function one() {
-
                 var emptyList = [];
 
                 for (i = 0; i < 5; i++) {
@@ -22,7 +21,7 @@
                         and putting it into memory location of emptyList i.e. emptyList[0] */
                     )
                 }
-                return emptyList; // After the loop is finished we are return the commplete array
+                return emptyList; /* After the loop is finished we are return the commplete array */
             }
 
             var functionFirst = one();
@@ -36,8 +35,6 @@
             functionFirst[3](); /* Invoking function sitting in each memory location of the array */
             functionFirst[4](); /* Invoking function sitting in each memory location of the array */
 
-
-
             console.log('Closure example with self-invoking function');
 
             function otherClosure() {
@@ -50,7 +47,10 @@
                         }(i))
                     );
                 }
-                return myList;
+                /* After completion of the loop and the array gets return */
+                /* console.log(myList) - will show the the array with collection of 
+                values pushed through the loop */
+                return myList; 
             }
 
             var selfInvokingFunction = otherClosure();
