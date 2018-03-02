@@ -5,45 +5,33 @@
      </head>   
     <body>
        <h1>Make Greeting Closure</h1>
-       <script type="text/javascript">
-        
-        function makeGreetings(language) {
-            return function(firstname, lastname) {
+ 
+        <script type="text/javascript">
 
-                if (language === 'en') {
-                    console.log('Hello ' + firstname + ' ' + lastname);
-                    var newPara = document.createElement('h2');
-                    newPara.classList.add('newElement');
-                    newPara.innerHTML = 'Hello ' + firstname + ' ' + lastname;
-                    document.body.appendChild(newPara);
-                }
-
-                if (language === 'es') {
-                    console.log('Hola ' + firstname + ' ' + lastname);
-                    var newPara = document.createElement('h2');
-                    newPara.classList.add('newElement');
-                    newPara.innerHTML = 'Hola ' + firstname + ' ' + lastname;
-                    document.body.appendChild(newPara);
+            function greetingsFactory(langauge) {
+                return function(firstname, lastname) {
+                    if(langauge === 'en') {
+                        var newElm = document.createElement('h2');
+                        newElm.classList.add('newTag');
+                        newElm.innerHTML = 'Hello ' + firstname + ' ' + lastname;
+                        document.body.appendChild(newElm);
+                    }
+                    if(langauge === "es") {
+                        var newElm = document.createElement('h2');
+                        newElm.classList.add('newTag');
+                        newElm.innerHTML = 'Hola ' + firstname + ' ' + lastname;
+                        document.body.appendChild(newElm);
+                    }
                 }
             }
-        } // makeGreetings
-        
-        /* One way of doing it */
 
-        document.write('One way of doing it!')
+            var makeGreetings = greetingsFactory('en');
+            makeGreetings('Ali', 'Khan');
+            /* Each function creates it's execution stack, each time you run */
 
-        makeGreetings('en')('Ali', 'Khan');
-        makeGreetings('es')('Nazish', 'Khan');
-
-        document.write('Another way of doing it!')
-
-        /* Another way of doing it */
-        var greetEnglish = makeGreetings('en');
-        var greetSpanish = makeGreetings('es');
-
-        greetEnglish('Ali', 'Khan');
-        greetSpanish('Nazish', 'Khan');
-
+            var makeGreetings = greetingsFactory('es');
+            makeGreetings('Nazish', 'Khan');
+            /* Each function creates it's execution stack, each time you run */
 
         </script>
         
