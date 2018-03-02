@@ -27,9 +27,22 @@
                 }
             }
         } // makeGreetings
+        
+        /* One way of doing it */
 
-        var greetEnglish = makeGreetings('en')('Ali', 'Khan');
-        var greetSpanish = makeGreetings('es')('Nazish', 'Khan');
+        document.write('One way of doing it!')
+
+        makeGreetings('en')('Ali', 'Khan');
+        makeGreetings('es')('Nazish', 'Khan');
+
+        document.write('Another way of doing it!')
+
+        /* Another way of doing it */
+        var greetEnglish = makeGreetings('en');
+        var greetSpanish = makeGreetings('es');
+
+        greetEnglish('Ali', 'Khan');
+        greetSpanish('Nazish', 'Khan');
 
 
         </script>
