@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Closure and Callbacks</title>
+     </head>   
+    <body>
+       <h1 id ="test">Closures and Callbacks</h1>
+ 
+        <script type="text/javascript">
+
+            /* Callback and Closure Example 1 */
+
+            function myTimeOut() {
+                var a = "Karachi Kings";
+                var b = "Lahore Qalandars";
+
+                setTimeout(function() {
+                    console.log('Big Match is between ' + a + ' vs ' + b);
+                }, 3000);
+            }
+
+            myTimeOut();
+
+            /* We use Function Expressions and Closure all the time in jquery too */
+
+           /* $('button').click(function(){
+                console.log('Button is clicked!');
+            }); */
+
+            /* Above example of jQuery - where click is a function 
+            which has another function as callback */
+
+            function tellMeWhatToDo(callback) {
+                var x = "Hello";
+                var y = "World!"
+                callback(x,y); // the 'callback', it runs the function I give it!
+            }
+
+            tellMeWhatToDo(function(){
+                console.log('I am done!');
+            });
+
+            tellMeWhatToDo(function(){
+                console.log('All done!');
+            });
+
+        </script>
+
+    </body>
+</html>
