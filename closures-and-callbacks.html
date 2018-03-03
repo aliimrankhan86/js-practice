@@ -10,16 +10,17 @@
 
             /* Callback and Closure Example 1 */
 
-            function myTimeOut() {
-                var a = "Karachi Kings";
-                var b = "Lahore Qalandars";
-
+            function customTimeOut(callWhenAsked) {
+                var a = "Alpha";
                 setTimeout(function() {
-                    console.log('Big Match is between ' + a + ' vs ' + b);
+                    console.log(a);
+                    callWhenAsked();
                 }, 3000);
             }
 
-            myTimeOut();
+            customTimeOut(function(){
+                console.log('I am a callback function inside setTimeOut')
+            });
 
             /* We use Function Expressions and Closure all the time in jquery too */
 
@@ -33,7 +34,7 @@
             function tellMeWhatToDo(callback) {
                 var x = "Hello";
                 var y = "World!"
-                callback(x,y); // the 'callback', it runs the function I give it!
+                callback(); // the 'callback', it runs the function I give it!
             }
 
             tellMeWhatToDo(function(){
