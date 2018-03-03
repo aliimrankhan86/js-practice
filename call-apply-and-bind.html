@@ -6,13 +6,15 @@
     <body>
        <h1>Call, Apply and Bind</h1>
        <h2 id ="bind"></h2>
+       <h3 id="family"></h3>
+
         <script type="text/javascript">
 
             /* Bind */
             
             var person = {
-                firstName : 'Ali Imran',
-                lastName : 'Khan',
+                firstName : 'John',
+                lastName : 'Doe',
                 fullName : function() {
                     // Remember 'this' inside a method always points to the parent object
                     var combineName = this.firstName + ' ' + this.lastName;
@@ -36,14 +38,45 @@
                'this' points to person instead of window.
             */
 
+            /* 
+                Bind doesn't execute the function but it creates a copy and link the object to it 
+            */
+
             /* Bind ends */
 
 
             /* Call */
+            
+            /* 
+                Call just execute the function, however the first argument is the object
+                you want it to link then followed by the parameter values.
+            */
 
+            var family = {
+                father : 'Ali',
+                mother : 'Nazish',
+                kid1 : 'Anaya',
+                kid2 : 'Aizah',
+                completeFamily : function(lname) {
+                    lname = lname.toUpperCase();
+                    var allFamily = this.father + ' ' + lname + ' ' 
+                    + this.mother + ' ' + lname + ' '
+                    + this.kid1 + ' ' + lname + ' ' 
+                    + this.kid2 + ' ' + lname;
+                    return allFamily;
+                }
+            }
 
+            function familyMembers (surname) {
+                document.getElementById('family').innerHTML = this.completeFamily('khan');
+            }
 
+            familyMembers.call(family, 'a', 'b');
 
+            /* 
+            Call - invoked the family object and followed by any arguments,
+            if you want to use them 
+            */
 
 
         </script>
