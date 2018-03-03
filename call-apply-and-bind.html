@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Call, Apply and Bind</title>
+     </head>   
+    <body>
+       <h1>Call, Apply and Bind</h1>
+       <h2 id ="bind"></h2>
+        <script type="text/javascript">
+
+            /* Bind */
+            
+            var person = {
+                firstName : 'Ali Imran',
+                lastName : 'Khan',
+                fullName : function() {
+                    // Remember 'this' inside a method always points to the parent object
+                    var combineName = this.firstName + ' ' + this.lastName;
+                    return combineName;
+                }
+            }
+
+            function loginInfo (lang1, lang2) {
+                console.log(this);
+                document.getElementById('bind').innerHTML = 'Bind sample ' + 'Logged in ' + this.fullName();
+            }
+
+            loginInfo.bind(person)(); // One way of invoking 
+            /* var newLoginInfo = loginInfo.bind(person); 
+            newLoginInfo(); // Other way of invoking */
+            
+            /* 
+               Bind creates a copy of the function, whereever it is being used
+               i.e. it will create a copy of the function loginInfo and then
+               bind the object person to it. Essentially, which will make 
+               'this' points to person instead of window.
+            */
+
+            /* Bind ends */
+
+
+            /* Call */
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>
