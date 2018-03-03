@@ -45,6 +45,21 @@
                 console.log('All done!');
             });
 
+
+
+            /* Some practice example of closure here */
+
+            function myInfo() {
+                var age = 31;
+                return function(name) {
+                    console.log('my name is ' + name + ' and ' + 'I am ' +  age + ' years old');
+                }
+            }
+            
+            var info = myInfo();
+            info('Ali');
+
+
         </script>
 
     </body>

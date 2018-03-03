@@ -22,6 +22,10 @@
                         newElm.innerHTML = 'Hola ' + firstname + ' ' + lastname;
                         document.body.appendChild(newElm);
                     }
+
+                    if (langauge !== "en" && langauge !== "es") {
+                        document.write('Salaam ' + firstname + ' ' + lastname);
+                    }
                 }
             }
 
@@ -32,6 +36,11 @@
             var makeGreetings = greetingsFactory('es');
             makeGreetings('Nazish', 'Khan');
             /* Each function creates it's execution stack, each time you run */
+
+
+            var makeGreetings = greetingsFactory('ur');
+            makeGreetings('Farida','Khan');
+
 
         </script>
         
