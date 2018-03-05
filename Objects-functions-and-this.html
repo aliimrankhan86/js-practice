@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Self and That</title>        
+    </head>
+    <body>
+
+        <h1>Objects, functions and this</h1>
+
+        <script type="text/javascript">
+            function a() {
+                console.log(this);
+                /* This will refer to window object */
+                this.newVariable = "hello";
+            }
+
+            var b = function() {
+                console.log(this);
+                /* This will refer to window object */
+            }
+            
+            a();
+
+            console.log(newVariable);
+
+            b();
+
+
+
+            var c = {
+                name: 'The c object',
+                log: function() {
+
+                    var self = this;
+
+                    self.name = "Update C object";
+                    console.log(self);
+                    /* this inside method points to the parent object */
+                    
+                    var setName = function(newName) {
+                        self.name = newName;
+                    }
+
+                    setName('Updated Again, The C Object');
+                    console.log(self);
+
+                    /* If we use this instead of self then,
+                    it will point to window object */
+
+                    /* Instead of using this, we should use
+                       var self to avoid confusion between 
+                       window and parent object - in this case
+                       object c */
+                }
+            }
+
+            c.log();
+
+        </script>        
+    </body>
+</html>
