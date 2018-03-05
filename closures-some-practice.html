@@ -15,23 +15,27 @@
                 for (i=0; i < 3; i++) {
                     arr.push(function() {
                         document.getElementsByTagName('p')[0].innerHTML += i + '<br>';
+                        /* Remember we aren't invoking this function yet */
                     })
                     /* We aren't invoking the above function thus people often think
                     that the value will iterate each time, however that is not the case
                     After the loop finishes its iteration, the inside function remembers
                     it's parent loop's variable final value before it ended
                     which is why all the calls are returning same value which is 3  */
-
                 }
 
                 return arr;
+                /* Eventually when (i) will end by becoming 3 then it will end */
+
             }
 
            var fs =  buildFunction();
            fs[0]();
            fs[1]();
            fs[2]();
-
+           /* The loop ended when (i) became 3 and that was the last value added in 
+           arr by push method so even when you invoke fs[0]() or any other array memory,
+           it will display you 3 because of last value recorded */
 
             
         </script>

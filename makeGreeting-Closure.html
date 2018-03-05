@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Make Greeting Closure</title>
+     </head>   
+    <body>
+       <h1>Make Greeting Closure</h1>
+ 
+        <script type="text/javascript">
+
+            function greetingsFactory(langauge) {
+                return function(firstname, lastname) {
+                    if(langauge === 'en') {
+                        var newElm = document.createElement('h2');
+                        newElm.classList.add('newTag');
+                        newElm.innerHTML = 'Hello ' + firstname + ' ' + lastname;
+                        document.body.appendChild(newElm);
+                    }
+                    if(langauge === "es") {
+                        var newElm = document.createElement('h2');
+                        newElm.classList.add('newTag');
+                        newElm.innerHTML = 'Hola ' + firstname + ' ' + lastname;
+                        document.body.appendChild(newElm);
+                    }
+
+                    if (langauge !== "en" && langauge !== "es") {
+                        document.write('Salaam ' + firstname + ' ' + lastname);
+                    }
+                }
+            }
+
+            var makeGreetings = greetingsFactory('en');
+            makeGreetings('Ali', 'Khan');
+            /* Each function creates it's execution stack, each time you run */
+
+            var makeGreetings = greetingsFactory('es');
+            makeGreetings('Nazish', 'Khan');
+            /* Each function creates it's execution stack, each time you run */
+
+            var makeGreetings = greetingsFactory('ur');
+            makeGreetings('Farida','Khan');
+
+
+        </script>
+        
+    </body>
+</html>

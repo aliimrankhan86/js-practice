@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Closure and Callbacks</title>
+     </head>   
+    <body>
+       <h1 id ="test">Closures and Callbacks</h1>
+ 
+        <script type="text/javascript">
+
+            /* Callback and Closure Example 1 */
+
+            function customTimeOut(callWhenAsked) {
+                var a = "Alpha";
+                setTimeout(function() {
+                    console.log(a);
+                    callWhenAsked();
+                }, 3000);
+            }
+
+            customTimeOut(function(){
+                console.log('I am a callback function inside setTimeOut')
+            });
+
+            /* We use Function Expressions and Closure all the time in jquery too */
+
+           /* $('button').click(function(){
+                console.log('Button is clicked!');
+            }); */
+
+            /* Above example of jQuery - where click is a function 
+            which has another function as callback */
+
+            function tellMeWhatToDo(callback) {
+                var x = "Hello";
+                var y = "World!"
+                callback(); // the 'callback', it runs the function I give it!
+            }
+
+            tellMeWhatToDo(function(){
+                console.log('I am done!');
+            });
+
+            tellMeWhatToDo(function(){
+                console.log('All done!');
+            });
+
+
+
+            /* Some practice example of closure here */
+
+            function myInfo() {
+                var age = 31;
+                return function(name) {
+                    console.log('my name is ' + name + ' and ' + 'I am ' +  age + ' years old');
+                }
+            }
+            
+            var info = myInfo();
+            info('Ali');
+
+
+        </script>
+
+    </body>
+</html>

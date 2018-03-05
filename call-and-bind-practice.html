@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Call and bind</title>
+     </head>   
+    <body>
+        <h1>Call and Bind</h1>
+        <h2 id="bind"></h2>
+ 
+        <script type="text/javascript">
+        
+            /* bind */
+            var anaya = {
+                name: 'Anaya',
+                age: 5,
+                school: 'The Hampton School',
+                completeInfo: function() {
+                    var info = this.name + ' is ' + this.age + ' years old and goes to ' + this.school;
+                    return info;
+                }
+            }
+            
+            var kI = function kidInfo() {
+                document.getElementById('bind').innerHTML = this.name + "'s information is " + 
+                this.completeInfo();
+            }.bind(anaya);
+            kI();
+
+            /* Call */
+
+            function myDaughterInfo(lang1, lang2) {
+                var i = document.createElement('h2');
+                i.classList.add('some-class');
+                document.body.appendChild(i);
+                i.innerHTML = this.name + ' speaks 2 languages ' + lang1 + ' and ' + lang2;
+            }
+
+            myDaughterInfo.call(anaya, 'English', 'Urdu');
+            
+
+        </script>
+
+    </body>
+</html>
