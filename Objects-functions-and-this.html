@@ -8,6 +8,7 @@
         <h1>Objects, functions and this</h1>
 
         <script type="text/javascript">
+        
             function a() {
                 console.log(this);
                 /* This will refer to window object */
@@ -24,8 +25,6 @@
             console.log(newVariable);
 
             b();
-
-
 
             var c = {
                 name: 'The c object',
@@ -46,6 +45,10 @@
 
                     /* If we use this instead of self then,
                     it will point to window object */
+
+                    /* Dont forget objects are by reference -
+                       which is why this and self will point 
+                       to object c rather than window object */
 
                     /* Instead of using this, we should use
                        var self to avoid confusion between 
