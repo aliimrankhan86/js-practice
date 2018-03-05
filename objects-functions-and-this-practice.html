@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects Functions and This</title>        
+    </head>
+    <body>
+
+        <h1>Objects, functions and this</h1>
+
+        <script type="text/javascript">
+
+            function a() {
+                console.log(this);
+                /* This will return window object */
+            }
+
+            a();
+
+            var b = function() {
+                console.log(this);
+                /* This will return window object */
+            }
+
+            b();
+
+
+            var c = {
+                name: 'Ali Khan',
+                log: function() {
+
+                    var self = this;
+
+                    console.log(self);
+                    self.name = "Update - Ali Imran Khan";
+                    console.log(self);
+
+                    var newName = function(completeFullName) {
+                        self.name = completeFullName;
+                    }
+
+                    newName('My name is ali imran khan');
+
+                    console.log(self);
+
+                }
+            }
+
+            c.log();
+        
+            
+        </script>
+
+    </body>
+</html>
