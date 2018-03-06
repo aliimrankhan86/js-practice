@@ -8,7 +8,7 @@
         <h2 id="bind"></h2>
  
         <script type="text/javascript">
-        
+
             /* bind */
             var anaya = {
                 name: 'Anaya',
@@ -36,9 +36,28 @@
             }
 
             myDaughterInfo.call(anaya, 'English', 'Urdu');
+
+            /* Apply */
+
+            var aizah = {
+                name: 'Aizah',
+                age: 2,
+                school: 'Home Schooling',
+                completeInfo: function() {
+                    var info = this.name + ' is ' + this.age + ' years old and goes to ' + this.school;
+                    return info;
+                }
+            }
+
+            function aizahInfo() {
+                var t = document.createElement('h1');
+                t.classList.add('some-random-class');
+                document.body.appendChild(t);
+                t.innerHTML = this.completeInfo();
+            }
+
+            aizahInfo.apply(aizah)
             
-
         </script>
-
     </body>
 </html>
