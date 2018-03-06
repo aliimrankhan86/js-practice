@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function Currying &amp; Function Borrowing</title>
+     </head>   
+    <body>
+       <h1>Function Currying &amp; Function Borrowing</h1>
+       <h2 id="currying">Function currying example</h2>
+       <h2 id="borrowing">Function borrowing example</h2>
+        <script type="text/javascript">
+
+        /* Function currying - it is more related to bind */
+        /* Function Currying - Creating a copy of a function with some preset parameters 
+        - mostly used for maths equations */
+            function multiply(a,b) {
+                return a * b;
+            }
+            var multiplyByTwo = multiply.bind(this, 2);
+            console.log(multiplyByTwo(4));
+        /* Above with bind you create a copy of the function - dont worry about this word
+        but we are giving it a parameter value - remember bind doesnt execute the function.
+        by using parameters we are setting a permanent value to the parameters so it can be 
+        used in the function copy
+        */    
+
+        /* Another way of doing above function currying example */
+        function multiply(a, b) {
+            //a = 3; /* to set permanent value to variable a for all copies to use. */
+            return a * b;
+        }
+
+        var multiplyByThree = multiply.bind(this);
+        console.log(multiplyByThree(5, 7));
+
+
+
+
+
+        /* Function Borrowing */ 
+        /* As the name suggest this allows you to borrow a function from one place to another */
+
+        var person = {
+            firstname: 'John',
+            lastname: 'Doe',
+            fullname: function() {
+                return this.firstname + ' ' + this.lastname;
+            }
+        }
+
+        var person2 = {
+            firstname: 'Jane',
+            lastname: 'Doe'
+        }
+
+        function personInfo() {
+            return document.getElementById('borrowing').innerHTML = this.fullname() + ' has executed this';
+        }
+
+        var information = personInfo.bind(person);
+        information();
+        /* Above we have binded fullname method to our function now 'this' will point 
+        to person object */
+
+        var callInfo = person.fullname.call(person2)
+        console.log(callInfo);
+
+
+        console.log(person.fullname.apply(person2));
+        /* Above we created another object called person2 but without fullname method.
+        We used fullname method from person object into our person2 object by
+        using apply in simple words we borrowed it from person object to use in our object */
+        
+        </script>
+        
+
+    </body>
+</html>

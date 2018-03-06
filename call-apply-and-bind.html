@@ -26,8 +26,9 @@
                 console.log(this);
                 document.getElementById('bind').innerHTML = 'Bind sample ' + 'Logged in ' + this.fullName();
             }
-
-            loginInfo.bind(person)(); // One way of invoking 
+            
+            var allInfo = loginInfo.bind(person);
+            allInfo(); // One way of invoking 
             /* var newLoginInfo = loginInfo.bind(person); 
             newLoginInfo(); // Other way of invoking */
             
@@ -74,10 +75,24 @@
             familyMembers.call(family, 'a', 'b');
 
             /* 
-            Call - invoked the family object and followed by any arguments,
-            if you want to use them 
+            Call - invoked the family object and followed by simply passing 
+            arguments / parameters, if you want to use them 
             */
 
+
+            /* Apply */
+
+            /* With Apply you can do function borrowing */
+
+            /* function borrowing */
+            var person2 = {
+                firstName: 'Jane',
+                lastName: 'Doe'
+            }
+
+            console.log(person.fullName.apply(person2));
+
+            /* With apply you can borrow other objects methods, as long as you have same property names */
 
         </script>
 
