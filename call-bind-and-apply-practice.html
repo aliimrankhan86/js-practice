@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Call and bind</title>
+        <title>Call, Bind and Apply Practice</title>
      </head>   
     <body>
         <h1>Call and Bind</h1>
@@ -49,11 +49,12 @@
                 }
             }
 
-            function aizahInfo() {
+            function aizahInfo(lang1, lang2) {
                 var t = document.createElement('h1');
                 t.classList.add('some-random-class');
                 document.body.appendChild(t);
                 t.innerHTML = this.completeInfo();
+                console.log('Arguments: ' + lang1 + ' ' + lang2);
             }
 
             aizahInfo.apply(aizah)

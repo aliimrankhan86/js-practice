@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array and Arguments</title>
+     </head>   
+    <body>
+        <h1>Practice - Array and Arguments</h1>
+        <h2 id="names"></h2>
+
+        <script type="text/javascript">
+            
+            var names = ['Ali', 'Nazish', 'Anaya', 'Aizah'];
+            console.log(names.length);
+            function showAllNames() {
+                var empty = [];
+                for (var i = 0; i < names.length; i++) {
+                    document.getElementById('names').innerHTML += names[i] + ' khan' + '<br>';
+                    empty.push(names[i]);
+                }
+                console.log(empty);               
+            }
+
+            showAllNames();
+
+        </script>
+ 
+    </body>
+</html>
