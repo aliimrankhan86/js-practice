@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bind</title>
+     </head>   
+    <body>
+
+        <h1 id="call">Call Example is </h1>
+
+       <script type="text/javascript">
+
+        var daughter = {
+            name: 'Aizah',
+            age: 2,
+            info : function() {
+                var compeleteInfo = this.name + ' ' + this.age;
+                return compeleteInfo;
+            }
+        }
+
+        function daughterInfo(lang1, lang2) {
+            return document.getElementById('call').innerHTML += this.info() + ' can speak ' 
+            + lang1 + ' and ' + lang2;
+        };
+        
+        var completeDaughterInfo = daughterInfo.call(daughter, 'english', 'urdu');
+
+       </script>
+    </body>
+</html>
