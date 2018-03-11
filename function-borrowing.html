@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function Borrowing</title>
+     </head>   
+    <body>
+
+        <h1 id="function-borrowing">Function Borrowing</h1>
+
+       <script type="text/javascript">
+
+        var anaya = {
+            name: 'Anaya',
+            age: 5,
+            info: function () {
+                var info = this.name + ' ' + this.age;
+                return info;
+            }
+        }
+
+        function childInfo() {
+            return document.getElementById('function-borrowing').innerHTML = this.info();
+        }
+
+        childInfo.call(anaya);
+
+
+        var aizah = {
+            name: 'Aizah',
+            age: 2
+        }
+
+
+        console.log(anaya.info.call(aizah)); 
+        /* 
+           Function Borrowing - Above, we could have done the same thing with apply -
+           we borrowed a function from one object and used it on the other - as long as you have 
+           similiar property names. 
+         */
+
+
+       </script>
+    </body>
+</html>
