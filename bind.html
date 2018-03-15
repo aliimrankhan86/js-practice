@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bind</title>
+     </head>   
+    <body>
+
+        <h1 id="bind">Bind Example is </h1>
+
+       <script type="text/javascript">
+            var daughter = {
+                name: 'Anaya',
+                age: 5,
+                info: function () {
+                    var justInfo = this.name + ' ' + this.age;
+                    return justInfo;
+                }
+            }
+
+            function daughterInfo(lang1, lang2) {
+                return document.getElementById('bind').innerHTML += this.info() + ' speaks ' + 
+                lang1.toUpperCase() + ' ' + lang2.toUpperCase();
+            }
+
+            var daughterInformation = daughterInfo.bind(daughter);
+            daughterInformation('english', 'urdu');
+
+
+       </script>
+    </body>
+</html>

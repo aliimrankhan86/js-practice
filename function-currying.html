@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function Currying</title>
+     </head>   
+    <body>
+
+       <h1 id="function-currying">Function Currying</h1>
+
+       <script type="text/javascript">
+            // Function Currying
+            /* 
+                Function currying is specifically related to bind method,
+                Remember Bind creates a copy of the function, in this
+                example we dont care about where 'this' is pointing to
+
+                But we are passing parameters to the copy of the function.
+
+            */    
+
+
+            function multiply(a,b) {
+                return a * b;
+            }
+
+            var multipleByTwo = multiply.bind(this, 2);
+
+            /* Above example means - you are setting value '2' to parameter a */
+            
+            console.log(multipleByTwo(4));
+
+            /* Above line means - now you are setting value '4' to parameter b */
+
+            /* Other way to similiar task */
+
+            var multipleByThree = multiply.bind(this, 2, 3);
+
+            console.log('Multiply by 3 is', multipleByThree());
+
+
+            /* Above example means - you created a copy of the function and this time you
+            passed a fix value to its parameters and now if you try to pass more parameters
+            then they will become extra parameters you are passing to them */
+
+
+       </script>
+
+    </body>
+</html>
