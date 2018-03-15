@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Call, Bind and Apply Practice</title>
+     </head>   
+    <body>
+        <h1>Functional Programming test</h1>
+ 
+        <script type="text/javascript">
+
+            var names = ['Ali', 'Imran', 'Khan'];
+
+            console.log('initials', names);
+
+            function namesComplete(arr, fn) {
+                var cnames = [];
+
+                for (var i = 0; i < arr.length; i++) {
+                    cnames.push(
+                        fn(arr[i])
+                    )
+                }
+                return cnames;
+            }
+
+            var completenamer = namesComplete(names, function(name){
+                return name + ' khan';
+            })
+
+            console.log(completenamer);
+            
+        </script>
+    </body>
+</html>

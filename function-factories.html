@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function Factories</title>
+
+    <body>
+        
+        <h1>Function Factories</h1>
+            
+        <script type="text/javascript">
+
+            function makeGreetings(language) {
+                return function(firstname, lastname) {
+
+                    if (language === 'en') {
+                        console.log(firstname + ' ' + lastname + ' speaks ' + language);
+                    }
+
+                    if (language === 'es') {
+                        console.log(firstname + ' ' + lastname + ' speaks ' + language);
+                    }
+
+                }
+            }
+
+            var englishGreetings = makeGreetings('en');
+            var spanishGreetings = makeGreetings('es');
+
+            englishGreetings('Ali', 'Khan');
+            spanishGreetings('Ali Imran', 'Khan');
+
+
+        </script>
+        
+    </body>
+</html>
