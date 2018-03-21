@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Call, Apply and Bind</title>
+     </head>   
+    <body>
+        <h1 id="bind">Bind is </h1>
+        <h1 id="call">Call is </h1>
+        <h1 id="apply">Apply is </h1>
+        <h1 id="borrowing">Function Borrowing is </h1>
+        <h1 id="currying">Function Currying is </h1>
+
+       <script type="text/javascript">
+
+        // Bind
+        var family = {
+	        father: 'Ali',
+            mother: 'Nazish',
+            child1: 'Anaya',
+            child2: 'Aizah',
+            complete: function() {
+                    return this.father + this.mother + this.child1 + this.child2;
+                }
+            }
+
+            function bindFunction(lang) {
+                return document.getElementById('bind').innerHTML += this.complete() + ' speaks ' + lang; 
+            }
+
+            bindFunction.bind(family, 'English')();
+
+
+
+
+            // Call
+            function callFunction(lang, familyType) {
+                return document.getElementById('call').innerHTML += this.complete() + ' ' + lang +
+                ' ' + familyType; 
+            }
+
+            callFunction.call(family, 'Urdu', 'Young Family');
+
+
+
+
+            // Apply
+            var arr = ['ali', 'imran', 'khan'];
+
+            function applyFunction(mainMember) {
+                return document.getElementById('apply').innerHTML += this.complete() + arr;
+            }
+
+            applyFunction.apply(family);
+
+
+
+
+            // Function Borrowing
+            var family2 = {
+                father: 'Aslam',
+                mother: 'Farida'
+            }
+
+            var otherfamily = family.complete.call(family2);
+            document.getElementById('borrowing').innerHTML += otherfamily;
+            
+
+
+
+            
+             // Function Currying
+            function multiply(a,b) {
+                return a * b;
+            }
+
+            var newMultiplication = multiply.bind(this, 5)
+            document.getElementById('currying').innerHTML += newMultiplication(4);
+
+
+       </script>
+    </body>
+</html>
