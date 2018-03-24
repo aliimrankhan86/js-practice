@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Calculator</title>    
+    </head>
+    <body>
+        <h1>New Calculator</h1>
+
+        <input type="text" id="num" value="" />
+        <input type="button" id="btn" value="add" />
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            var emptyarr = [];
+
+            btn.addEventListener('click', function() {
+                var currentNumber = document.getElementById('num').value;
+                currentNumber = isNaN(parseInt(currentNumber)) ? 0 : parseInt(currentNumber);
+                emptyarr.push(currentNumber);
+
+                function clearNumbers() {
+                    var zero = 0;
+                    return document.getElementById('num').value = zero;
+                }
+
+                clearNumbers();
+
+
+                num.addEventListener('click', function() {
+                    var nextValue = document.getElementById('num').value;
+                    nextValue = isNaN(parseInt(nextValue)) ? 0 : parseInt(nextValue);
+                    emptyarr.push(nextValue);
+                });
+
+                var output = 0;
+                for (var i = 0; i < emptyarr.length; i++) {
+                    output += emptyarr[i];
+                    // console.log(output);
+                    document.getElementById('output').innerHTML = output;
+                }
+            })
+
+        </script>
+
+    </body>
+</html>
