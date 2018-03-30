@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Highest Array Value</title>
+     </head>   
+    <body>
+        <h1>Highest Array Value</h1>
+
+        <script type="text/javascript">
+            var numbers = [4,7,9,2];
+            var highest = 0;
+
+            function t() {
+                for (var i = 0; i < numbers.length; i++) {
+                    if (numbers[i] > highest) {
+                        highest = numbers[i]
+                    }
+                    //console.log(highest);
+                }
+                document.write(highest);
+            }
+
+            t();
+            
+        </script>
+    </body>
+</html>
