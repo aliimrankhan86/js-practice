@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bind</title>
+     </head>   
+    <body>
+
+        <h1 id="bind">Bind Example is </h1>
+
+       <script type="text/javascript">
+            
+            var random = {
+                fname: "John",
+                lname: "Doe",
+                info: function() {
+                    return this.fname + this.lname;
+                }
+            }
+            
+
+            var randomInfo = function(lang1, lang2) {
+                return document.getElementById('bind').innerHTML = this.info();
+            }
+
+            var randomInfoDetail = randomInfo.bind(random);
+            randomInfoDetail();
+
+       </script>
+    </body>
+</html>

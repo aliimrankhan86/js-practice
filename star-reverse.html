@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>star</title>
+        <title>Stars Reverse</title>
      </head>   
     <body>
-
         <h1>Stars Reverse</h1>
 
-       <script type="text/javascript">
+        <script type="text/javascript">
 
-        for (var n=10)
-       </script>
+
+        /* For outputting the result in console */
+            for (var n=10; n>=1; n--) {
+                var output = "";
+                for (var i=1; i<=n; i++) {
+                    output+="*";
+                }
+                console.log(output);
+            }
+
+
+        /* For outputting the result in browser */
+        for (x=10; x>=0; x--) {
+            for (var b=1; b<=x; b++) {
+                document.write("*");
+            }
+            document.write("<br>")
+        }    
+
+        </script>
+
     </body>
 </html>
