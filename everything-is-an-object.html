@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Everything is an Object or a primitive</title>
+     </head>   
+    <body>
+       <h1>Everything is an Object or a primitive</h1>
+        <script type="text/javascript">
+            var a = {};
+            var b = function() {};
+            var c = [];
+
+            console.log(a.__proto__);
+            console.log(b.__proto__);
+            console.log(c.__proto__);
+
+        </script>
+    </body>
+</html>
