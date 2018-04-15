@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dom Traversing</title>
+     </head>   
+    <body>
+        <h1>DOM TRAVERSING BY ZELL LEWK</h1>
+        <h3>Traversing downwards</h3>
+        <div class="parent">
+            <p>Parent</p>
+            <div class="child1">Child 1</div>
+            <div class="child2 selected">Child 2</div>
+        </div>
+       <script type="text/javascript">
+            const parent = document.querySelector('.parent')
+            const selected = parent.querySelector('.selected');
+
+            selected.classList.add('one');
+
+       </script>
+    </body>
+</html>

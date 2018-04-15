@@ -5,6 +5,8 @@
      </head>   
     <body>
        <h1>Everything is an Object or a primitive</h1>
+       <p>All arrays, functions and object have access to their methods due to
+        its prototype method, which javascript engine sets for us </p>
         <script type="text/javascript">
             var a = {};
             var b = function() {};
@@ -14,6 +16,13 @@
             console.log(b.__proto__);
             console.log(c.__proto__);
 
+            console.log('lets see what is the prototype of the prototype');
+
+            console.log(c.__proto__.__proto__);
+            /* it will return an object, because 
+
+
         </script>
+        
     </body>
 </html>

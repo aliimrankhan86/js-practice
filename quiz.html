@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        <style>
+        #correct, #incorrect {
+            font-size: 30px;
+            padding: 25px 30px 25px 0;
+        }
+        </style>
+     </head>   
+    <body>
+        <h1>Quiz</h1>
+
+        <div class="questions">
+            <p>What is 2 + 2 ?</p>
+            <div class="q">
+                <input type="radio" name="q" value="2"> 2<br>
+                <input type="radio" name="q" value="four"> Four<br>
+                <input type="radio" name="q" value="4"> 4  
+            </div> 
+
+            <p>Capital of UK?</p>
+            <div class="q">
+                <input type="radio" name="t" value="Edinburgh">Edinburgh<br>
+                <input type="radio" name="t" value="Manchester">Manchester<br>
+                <input type="radio" name="t" value="London">London<br>
+            </div> 
+          </div> <!-- / questions -->
+
+          <div style="margin: 10px 0;">
+            <p><span id="correct"></span></p>
+            <p><span id="incorrect">Incorrect</span></p>
+          </div>
+
+        <br />
+        <button id="submit" style="padding:5px">Submit</button>
+        
+
+       <script type="text/javascript">
+
+            let submit = document.querySelector('#submit');
+            let questions = document.getElementsByClassName('q'); 
+            let allanswers = [4, 'London'];
+            let arr = [];
+  
+
+            
+            
+
+            for (var i=0; i < questions.length; i++) {
+                questions[i].addEventListener('click', function(){
+                    let checked = this.querySelector('input[type="radio"]:checked');
+                    arr.push(checked.value);
+                });
+            }
+
+            submit.addEventListener('click', function() {
+                let counter = 0;
+                counter++;
+                arr.filter(function(elm){
+                    
+                    for (var n = 0; n < allanswers.length; n++) {
+                        if (elm == allanswers[n]) {
+                            console.log('elm is', elm);
+                            console.log('allanswer n value is' , allanswers[n]);
+                            document.getElementById('correct').innerHTML = counter;
+                        }
+                    }
+                });
+            });
+       </script>
+    </body>
+</html>
