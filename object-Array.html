@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Object Array</title>        
+    </head>
+    <body>
+
+        <h1>Object Array</h1>
+
+        <script type="text/javascript">
+
+            var devs = {
+                information: [{
+                    "name": "Ali Khan",
+                    "department": "Front End Development"
+                }, {
+                    "name": "Ethisham Abbasi",
+                    "department": "Javascript"
+                }, {
+                    "name": "Kamran Aslam",
+                    "department": "UX"
+                }, {
+                    "name": "M Ali",
+                    "department": "Topi"
+                }]
+            }
+
+            var noOfDevs = devs.information;
+            var ulElems = '';
+            noOfDevs.map (
+            function(item) {
+                    ulElems += `<li>${item.name} ${item.department} </li>`;
+            }
+            );
+
+            document.getElementById("list").innerHTML = ulElems; 
+
+
+        </script>
+
+</body>
+</html>
+
