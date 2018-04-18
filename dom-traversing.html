@@ -5,17 +5,64 @@
      </head>   
     <body>
         <h1>DOM TRAVERSING BY ZELL LEWK</h1>
-        <h3>Traversing downwards</h3>
+
+        <h3>Traversing Downwards</h3>
         <div class="parent">
             <p>Parent</p>
             <div class="child1">Child 1</div>
             <div class="child2 selected">Child 2</div>
+
+            <ul class="list">
+                <li><a href="#">One</a></li>
+                <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li>
+                <li><a href="#">Four</a></li>
+            </ul>
         </div>
+
+
+        <br>
+        <br>
+        <h3>Traversing Upwards</h3>
+
+
+
        <script type="text/javascript">
             const parent = document.querySelector('.parent')
-            const selected = parent.querySelector('.selected');
-
+            const selected = parent.querySelector('.selected'); // will return the first element
             selected.classList.add('one');
+
+            const list = document.querySelector('.list');
+            const listItems = list.children;
+            console.log(listItems); // this will return HTMLCollection
+
+            const filterFromList = list.querySelectorAll('li');
+            console.log('Will return a NodeList ', filterFromList);
+
+            const firstItem = filterFromList[0]; 
+            const secondItem = filterFromList[1];
+            const thirdItem = filterFromList[2];
+            const fourthItem = filterFromList[3];
+
+            console.log(firstItem); 
+            console.log(secondItem); 
+            console.log(thirdItem); 
+            console.log(fourthItem); 
+
+
+            // ES6 loop through an array or HTMLCollection
+            // Ignore the following code for the time being
+            /* for (var item of filterFromList) {
+                item.classList.add('customItems');
+                item.querySelector('a').classList.add('anchor');
+            } */
+
+
+            
+
+          
+
+
 
        </script>
     </body>
