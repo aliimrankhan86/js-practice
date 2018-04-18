@@ -1,0 +1,142 @@
+<html>
+<title>Quiz</title>
+
+<style>
+body {
+	background: #34495E;
+}
+
+.inner-container {
+    position: relative;
+    overflow: hidden;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.form-container {
+    width: 3000px;
+}
+
+.quiz {
+	background: khaki;
+    padding: 20px;
+}
+
+.quiz ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quiz li {
+    line-height: 30px;
+    padding: 0;
+}
+
+.quiz label {
+    padding-left: 20px; 
+}
+
+.quiz h1 {
+    font-size: 16px;
+}
+</style>
+
+<body>
+<div class="container">
+        <div class="inner-container">
+            <form>
+                <div class="form-container">
+                    <div class="quiz" data-quiz="city">
+                        <h1>What is the capital for United Kingdom</h1>
+                        <ul>
+                            <li><input type="radio" name="city" id="city1" value="London"><label for="city1">London</label></li>
+                            <li><input type="radio" name="city" id="city2" value="Manchester"><label for="city2">Manchester</label></li>
+                            <li><input type="radio" name="city" id="city3" value="Bristol"><label for="city3">Cardif</label></li>
+                            <li><input type="radio" name="city" id="city4" value="Bristol"><label for="city4">Edinburgh</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="language">
+                        <h1>What is the main language in United Kingdom</h1>
+                        <ul>
+                            <li><input type="radio" name="lang" id="lang1" value="Hindi"><label for="lang1">Hindi</label></li>
+                            <li><input type="radio" name="lang" id="lang2" value="English"><label for="lang2">English</label></li>
+                            <li><input type="radio" name="lang" id="lang3" value="Panjabi"><label for="lang3">Panjabi</label></li>
+                            <li><input type="radio" name="lang" id="lang4" value="Pashto"><label for="lang4">Pashto</label></li>
+                        </ul>
+                    </div>
+                    <div class="quiz" data-quiz="country">
+                        <h1>How many countries are in United Kingdom</h1>
+                        <ul>
+                            <li><input type="radio" name="countries" id="countries1" value="2"><label for="countries1">2</label></li>
+                            <li><input type="radio" name="countries" id="countries2" value="3"><label for="countries2">3</label></li>
+                            <li><input type="radio" name="countries" id="countries3" value="5"><label for="countries3">5</label></li>
+                            <li><input type="radio" name="countries" id="countries4" value="4"><label for="countries4">4</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="capital">
+                        <h1>What is the capital of Scotland</h1>
+                        <ul>
+                            <li><input type="radio" name="capital" id="capital1" value="Glasgow"><label for="capital1">Glasgow</label></li>
+                            <li><input type="radio" name="capital" id="capital2" value="Sunderland"><label for="capital2">Sunderland</label></li>
+                            <li><input type="radio" name="capital" id="capital3" value="Edinburgh"><label for="capital3">Edinburgh</label></li>
+                            <li><input type="radio" name="capital" id="capital4" value="Aberdeen"><label for="capital4">Aberdeen</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="location">
+                        <h1>Where is Scotland in United Kingdom</h1>
+                        <ul>
+                            <li><input type="radio" name="location" id="location1" value="East"><label for="location1">East</label></li>
+                            <li><input type="radio" name="location" id="location2" value="North"><label for="location2">North</label></li>
+                            <li><input type="radio" name="location" id="location3" value="South"><label for="location3">South</label></li>
+                            <li><input type="radio" name="location" id="location4" value="West"><label for="location4">West</label></li>
+                        </ul>
+                    </div>
+                </div>            
+                <button data-action="prev" data-value="1">Previous</button>
+                <button data-action="next" data-value="1">Next</button>
+                <button data-action="next" data-value="submit">Submit</button>
+            </form>
+    </div>
+    
+
+            
+</body>
+<script>
+
+    let all_answers = ['London', 'English', '4', 'Edinburgh', 'North']
+    let storQuizVal = []
+    let radio = document.querySelectorAll('input');
+    let total_answers = [];
+
+    radio.forEach(function(element, index) {
+        element.addEventListener('click', function(){
+            let a = this.closest('.quiz').children[1].children;
+            // console.log(a);
+            for(i=0; i<a.length; i++) {
+                let currentValue = a[i].children[0];
+                if (currentValue.checked == true) {
+                    storQuizVal.push(this.value);
+                }
+            }      
+
+            if (all_answers.includes(storQuizVal[0])) {
+                total_answers.push(1)
+                console.log('right answer');
+                storQuizVal = []
+                console.log(total_answers)
+            }
+            else {
+                console.log('wrong answer, please try again');
+                storQuizVal = []
+            }
+        })
+        
+    });
+    
+
+</script>
+
+</html>
