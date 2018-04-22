@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Constructor Function</title>
+     </head>   
+    <body>
+        <h1>Constructor Function</h1>
+
+        <p id="me"></p>
+        <p id="wife"></p>
+
+
+        <script type="text/javascript">
+           
+           function person(firstName, lastName) {
+               this.firstName = firstName;
+               this.lastName = lastName;
+           }
+
+           const me = new person('Ali Imran', 'Khan');
+           const wife = new person ('Nazish', 'Khan')
+
+           console.log(me);
+           console.log(wife);
+
+           document.getElementById('me').innerHTML = me.firstName + ' ' + me.lastName;
+           document.getElementById('wife').innerHTML = wife.firstName + ' ' + wife.lastName;
+
+
+
+
+       </script>
+    </body>
+</html>

@@ -40,6 +40,24 @@
         <br>
         <br>
         <h3>Traversing Upwards</h3>
+        <p id ="upwards-example"></p>
+
+        <ul id="listItem">
+            <li>List1</li>
+            <li>List2</li>
+            <li>List3</li>
+            <li>List4</li>
+        </ul>
+
+        <div id="closest">
+            <div class="closest1">
+                <div class="closest2">
+                    <p class="important-text">Let's see if I can select it's root</p>
+                </div>
+            </div>
+        </div>
+
+
 
 
 
@@ -84,11 +102,25 @@
             } */
 
 
+            console.log('Upward Traversing Starts here');
+
+            const firstListItem = document.querySelector('#listItem');
+            const newlist = firstListItem.parentElement.style.backgroundColor = "#ccc";
+
+            document.getElementById('upwards-example').innerHTML = 'Body background color is ' + newlist;
+            console.log('An Example of what we can do with HTML Collection');
+
+            let listCollection = document.querySelector('#listItem').children;
+            for (let i = 0; i < listCollection.length; i++) {
+                listCollection[i].style.color = "green";
+                console.log(listCollection[i]);   
+            }
+
+            const importantText = document.querySelector('.important-text');
+            const targetRoot = importantText.closest('#closest');
+            console.log(targetRoot);
+
             
-
-          
-
-
 
        </script>
     </body>
