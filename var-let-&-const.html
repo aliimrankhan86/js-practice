@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Var, Let and Const</title>
+        <style>
+
+        </style>
+        
+    </head>
+    <body>
+        <h1>What is var, let and const</h1>
+        <p id="info"></p>
+
+
+        <script type="text/javascript">
+
+            // variables datatypes
+            var myname = "Ali"; // String
+            var mynumber = 3; // Number
+            var myboolean = true; // Boolean
+            var mynull = null; // null
+            var undefined = undefined; // undefined
+            var mysymbol = ''; // not sure about it
+            var myobjeect = {}; // object literal
+
+            /* we use typeof to find the datatype */
+
+            console.log(typeof(myname));
+
+            let myfullname = "Ali Imran Khan";
+            /* let is used in ES6 but it is block scoped {} */
+            console.log(myfullname);
+
+            /* if we want to re-assign a new value */
+            myfullname = "Ali Khan";
+            console.log(myfullname);
+
+
+            /* Difference between var & let */
+            for (var i = 0; i <= 5; i++) {
+                setTimeout(function(){
+                    console.log(i);
+                },1000)
+            }
+
+            for (let x = 0; x <= 5; x++) {
+                setTimeout(function(){
+                    console.log(x);
+                }, 1000)
+            }
+
+            /* Const - it is same as let but the value is immutable */
+            
+            const daughter = {
+                name: 'Anaya',
+                age: 5
+            }
+
+            console.log(daughter);
+
+            daughter.age = 6;
+
+            console.log(daughter);
+
+            /* In other words remember the const name can't be
+            assigned to another value however the inner values 
+            or within the blocks {} can be added or changed */
+
+
+
+
+        </script>
+    </body>
+</html>

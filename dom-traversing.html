@@ -11,6 +11,22 @@
             <p>Parent</p>
             <div class="child1">Child 1</div>
             <div class="child2 selected">Child 2</div>
+            <div class="child2 selected">Child 3</div>
+
+            <ul class="list">
+                <li><a href="#">One</a></li>
+                <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li>
+                <li><a href="#">Four</a></li>
+            </ul>
+        </div>
+
+
+        <div class="parent" style="background:yellow">
+            <p>Parent</p>
+            <div class="child1">Child 1</div>
+            <div class="child2 selected">Child 2</div>
+            <div class="child2 selected">Child 3</div>
 
             <ul class="list">
                 <li><a href="#">One</a></li>
@@ -28,13 +44,23 @@
 
 
        <script type="text/javascript">
+            const t = {
+                name: 'Ali'
+            }
+
+            
             const parent = document.querySelector('.parent')
             const selected = parent.querySelector('.selected'); // will return the first element
-            selected.classList.add('one');
+            //selected.classList.add('one');
 
             const list = document.querySelector('.list');
             const listItems = list.children;
             console.log(listItems); // this will return HTMLCollection
+
+            var a = Array.from (listItems);
+            var b = {};
+            console.log(a);
+            console.log(b);
 
             const filterFromList = list.querySelectorAll('li');
             console.log('Will return a NodeList ', filterFromList);
