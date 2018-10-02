@@ -1,0 +1,47 @@
+		console.log('DE-STRUCTURING OBJECT')
+
+		const person = {
+			first: 'Ali Imran',
+			last: 'Khan',
+			country: 'United Kingdom',
+			city: 'London',
+			contact: {
+				phone: {
+					mob: 7846575221
+				},
+				digital: {
+					email: 'ali@gmail.com',
+					facebook: 'ali.i.khan86',
+					twitter: 'alikhan86'
+				}
+			}
+		}
+
+		const { first, last } = person;
+		console.log(first, last);
+		/* we are creating 2 const by telling it, where to take those 2 values from */
+
+		const { mob } = person.contact;
+		console.log(mob);
+		/* We dived deep into the object to inform it about the value of mob */
+
+		const { facebook: fb, twitter: tweet } = person.contact.digital;
+		console.log(fb, tweet);
+		/* We use facebook : fb and twitter : tweet meaning we want the facebook or
+		 twitter key but we will call it fb instead */
+
+
+		/* NEW EXAMPLE */
+
+		const settings = {
+			height: 300,
+			width: 200
+		}
+
+		const { height = 100, colour = "blue", width = 100, fontsize = 16 } = settings;
+		/* Remember height & width are extracted from settings but colour & fontsize aren't defined */
+		/* We defined a default value to our const created via destructuring object (colour, fontsize) */
+		console.log(height); /* height is still 300 not 100 which was default value defined */
+		/* THe way destructing works - if the values aren't present then it will take the default value
+		but if they are defined then it will take precedence over the default value */
+
