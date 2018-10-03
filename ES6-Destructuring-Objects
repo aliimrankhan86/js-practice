@@ -1,4 +1,4 @@
-		console.log('DE-STRUCTURING OBJECT')
+console.log('DE-STRUCTURING OBJECT')
 
 		const person = {
 			first: 'Ali Imran',
@@ -21,12 +21,12 @@
 		console.log(first, last);
 		/* we are creating 2 const by telling it, where to take those 2 values from */
 
-		const { mob } = person.contact;
+		const { mob } = person.contact.phone;
 		console.log(mob);
 		/* We dived deep into the object to inform it about the value of mob */
 
 		const { facebook: fb, twitter: tweet } = person.contact.digital;
-		console.log(fb, tweet);
+		console.log('facebook is', fb, ' & ', 'Twitter is ', tweet);
 		/* We use facebook : fb and twitter : tweet meaning we want the facebook or
 		 twitter key but we will call it fb instead */
 
@@ -49,3 +49,57 @@
 		const { w: mywidth = 400, h: myheight = 400 } = { w: 600 };
 		/* Above we are de-structuring const from the object passed after the equal operator
 		and we renaming the name from w to mywidth to avoid any const name conflicts */
+
+
+
+		/* ES5 way of function destructing objects */
+		function es5(obj) {
+			var n = obj.name;
+			var a = obj.age;
+			console.log(n, a);
+		}
+
+		es5({ name: 'Ali', age: 32 });
+
+
+
+
+		/* ES6 way of function destructing objects, if object is stored in a variable */
+		var es6Obj = {
+			wife: 'Naz',
+			age: 28
+		}
+
+		var es6 = ({ wife, age }) => {
+			console.log(wife, age)
+		}
+
+		es6(es6Obj)
+
+
+
+		var es6Method2 = ({ kid1: anaya = "mere jaan", kid2: aizah = "mere pyari" }) => {
+			console.log(anaya, aizah);
+		}
+
+		es6Method2({ kid1: 'Anaya Ali Khan', kid2: 'Anaya Ali Khan' });
+		/* Destructuring objects through functions - you pass the object through arguments
+		and then destructure by defining the variable names as parameters */
+
+		var testArg = {
+			name: 'Ali',
+			contact: {
+				email: 'hello@hello.com'
+			}
+		}
+
+		var testFunc = ({ email }) => {
+			console.log(email);
+		}
+
+		testFunc(testArg.contact);
+
+		/* Destructing the objects via arguments then in paramters defining the new variables
+		as parameters */
+
+		console.log('References can be taken from ', 'https://simonsmith.io/destructuring-objects-as-function-parameters-in-es6/');
