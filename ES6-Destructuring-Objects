@@ -45,3 +45,7 @@
 		/* THe way destructing works - if the values aren't present then it will take the default value
 		but if they are defined then it will take precedence over the default value */
 
+
+		const { w: mywidth = 400, h: myheight = 400 } = { w: 600 };
+		/* Above we are de-structuring const from the object passed after the equal operator
+		and we renaming the name from w to mywidth to avoid any const name conflicts */
