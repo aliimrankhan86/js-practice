@@ -25,6 +25,17 @@ var chars = [...greetings];
 console.log(chars);
 
 console.log('For revision on spreads', 'https://codeburst.io/javascript-the-spread-operator-a867a71668ca');
+  
+  
+/* Destructuring Array through ...rest operator as arguments */
+var arr  = 'ali, imran, khan, lives, in, slough, uk';
+arr = arr.split(',');
+  
+var something = ([first, ...args]) => {
+	console.log(first, ' is the first name ', ...args);
+}
+something(arr);
+
 
 </script>
 </body>
