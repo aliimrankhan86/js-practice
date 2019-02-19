@@ -9,3 +9,7 @@ myPromise.then((res) => {
 .catch((err) => {
 	console.log('Error is', err)
 })
+
+
+
+// References - https://www.youtube.com/watch?v=vQ3MoXnKfuQ
