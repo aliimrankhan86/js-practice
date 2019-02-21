@@ -1,0 +1,29 @@
+<!doctype html>
+<!--[if lt IE 9]> <html lang="en" class="no-js ie9" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/> <![endif]-->
+<!--[if IE 10]> <html lang="en" class="no-js ie10" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/> <![endif]-->
+<!--[if IE 11]> <html lang="en" class="no-js ie11" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/> <![endif]-->
+<!--[if (gt IE 11)|!(IE)]><!-->
+<html class="no-js" lang="en" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+<!--<![endif]-->
+
+<head>
+    <body>
+        <button onClick="myFetch()">Fetch Call</button>
+        <p id="info"> </p>
+
+        <script type="text/javascript">
+            const myFetch = (res, rej) => {
+                fetch('https://jsonplaceholder.typicode.com/todos/1')
+                .then(res => res.json())
+                .then(info => {
+                    console.log('my response is ', info)
+                    const p = document.querySelector('#info');
+                    Object.entries(info).forEach(([userid, id, title, complete]) => {
+                        p.innerHTML += `User id ${userid}, id is ${id}, title is ${title}, completed ${complete} <br>` ;
+                    });
+                })
+                .catch(err => console.log('Err is ', err));
+            }
+        </script>
+    </body>
+</html>
