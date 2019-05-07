@@ -12,7 +12,7 @@ var Extension = new Promise((resolve, reject) => {
 
 Extension.then(
 	result => alert(result),
-  refuse =? alert(refuse)
+        refuse => alert(refuse)
   /* We have consumers i.e. then, catch & finally. Then consumer is the most important one. If I use resolve method above in the promise 
   then the first argument function of 'then consumer' will resolve it witht the message and if I use the reject method then the 
   second argument function will result in rejecting the promise */
