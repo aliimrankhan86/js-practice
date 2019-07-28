@@ -1,10 +1,11 @@
-/*                 Array Methods Exercises
+/* Array Methods Excercises */    
 
-1> Write a JavaScript function to check whether an `input` is an array or not.*/
+// 1> Write a JavaScript function to check whether an `input` is an array or not.*/
 
 var arr = [1,2,3,4,5]
 var arr2 = (1,2,3,4,5)
 // var arr3 = {1,2,3,4,5} syntax error
+
 
 function checkArray(type1, type2) {
     for (i=0; i<arguments.length; i++) {
@@ -21,11 +22,20 @@ function checkArray(type1, type2) {
 checkArray(arr, arr2);
 
 
+
+
 // 2> Create an array from given elements
 
 var arr = (1,2,3,4,5);
 
-// I will comeback to it
+
+Array.of(arr);
+            
+console.log(arr);
+
+
+
+
 
 // 3> Merge following array into one array
 
@@ -42,6 +52,10 @@ arr = arr.concat(arr2).concat(arr3)
 console.log('old js concat ', arr)
 
 
+
+
+
+
 // 4> From the following array if all items in an array greater than 40 then return true else false
 
 var arr = [50,74,05,85,69,22]
@@ -54,6 +68,9 @@ arr.map(age => {
     age = (age > 40) ? console.log('true') : console.log('false')
   )
 })
+
+
+
 
 
 
@@ -103,32 +120,9 @@ var arr3 = [1,2,3,[4,5,[6,7,[8,9]]]]
 
 arr = [...arr, ...arr2, ...arr3];
 
+var flatArr = arr.flat(3)
 
-
-// arr.flat();
-// var emptyarr = [];
-
-
-// arr.map(e => {
-// 	if (typeof(e) === "object") {
-//       e.map(j => {
-//         emptyarr.push(j)
-//       })
-      
-// 	}
-// 	else {
-// 	  emptyarr.push(e);
-// 	}
-// });
-
-// console.log(emptyarr);
-
-var flattened = arr.reduce(
-  ( accumulator, currentValue ) => accumulator.concat(currentValue),
-  []
-);
-
-// I COULDN'T DO IT 
+console.log('3 level Flat Array', flatArr);
 
 
 
@@ -138,13 +132,12 @@ var flattened = arr.reduce(
 var arr = [1,2,3,4,5]  // key = 3
 var fruits = ['apple','mango','banana','grapes','guava'] // key = 'cherry'
 
+console.log('Arr has the key 3 ' , arr.includes(3));
 
-// I COULDN'T DO IT 
-
-
-
+console.log('fruits has the key cherry ' , fruits.includes('cherry'));
 
 
+            
 
 // // 8> Convert following array to strings
 
@@ -249,9 +242,4 @@ var arr2 = [55,52,57,95,75,41]
 arr2 = arr2.sort();
 
 console.log(arr2)
-
-
-
-
-
 
