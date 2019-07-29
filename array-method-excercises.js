@@ -1,4 +1,4 @@
-/* Array Methods Excercises */    
+/* Array Methods Exercises */    
 
 // 1> Write a JavaScript function to check whether an `input` is an array or not.*/
 
@@ -24,12 +24,13 @@ checkArray(arr, arr2);
 
 
 
+
 // 2> Create an array from given elements
 
 var arr = (1,2,3,4,5);
 
 
-Array.of(arr);
+arr = Array.of(arr);
             
 console.log(arr);
 
@@ -61,13 +62,30 @@ console.log('old js concat ', arr)
 var arr = [50,74,05,85,69,22]
 var arr2 = [55,52,57,95,75,41]
 
-arr = [...arr, ...arr2];
+var g1 = true;
+var g2 = true;
 
-arr.map(age => {
-  return (
-    age = (age > 40) ? console.log('true') : console.log('false')
-  )
-})
+
+arr.forEach(function(element) {
+  if(element < 40) {
+    g1 = false
+  }
+});
+
+arr2.forEach(function(element) {
+  if(element < 40) {
+    g2 = false
+  }
+});
+
+
+
+console.log('g1 is now ', g1);
+
+console.log('g2 is now ', g2)
+
+
+
 
 
 
@@ -118,21 +136,27 @@ var arr = [1,2,[3,4]]
 var arr2 = [1,2,3,[4,5,[6,7]]]
 var arr3 = [1,2,3,[4,5,[6,7,[8,9]]]]
 
-arr = [...arr, ...arr2, ...arr3];
 
-var flatArr = arr.flat(3)
 
-console.log('3 level Flat Array', flatArr);
+var flatArr = arr.flat(1);
+var flatArr2 = arr2.flat(2);
+var flatArr3 = arr3.flat(3);
+
+console.log('1 level Flat Array', flatArr);
+console.log('2 level Flat Array', flatArr2);
+console.log('3 level Flat Array', flatArr3);
 
 
 
 
 // 7> From the following array find if key present in array or not (retrn true or false)
 
-var arr = [1,2,3,4,5]  // key = 3
-var fruits = ['apple','mango','banana','grapes','guava'] // key = 'cherry'
+var arr = [1,2,3,4,5];  // key = 3
+var fruits = ['apple','mango','banana','grapes','guava']; // key = 'cherry'
 
 console.log('Arr has the key 3 ' , arr.includes(3));
+
+console.log('Array index of ', arr.indexOf(3) > -1 ? true : false);
 
 console.log('fruits has the key cherry ' , fruits.includes('cherry'));
 
@@ -179,7 +203,7 @@ console.log(lastfruit);
 
 
 // 12> Add element at last of array
-// var fruits = ['apple','mango','banana','grapes','guava'] 
+var fruits = ['apple','mango','banana','grapes','guava'];
 // add 'cherry'
 
 fruits.push('cherry');
@@ -239,7 +263,10 @@ console.log(fruits)
 // 17> Sort (Ascending) the following array
 var arr2 = [55,52,57,95,75,41]
 
-arr2 = arr2.sort();
+
+arr2 = arr2.sort(); // ascending
+arr2 = arr2.sort((a,b) => b - a); // decending
 
 console.log(arr2)
+
 
