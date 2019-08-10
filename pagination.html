@@ -51,7 +51,6 @@
             <th>Name</th>
             <th>Gender</th>
             <th>Email</th>
-            <th>ID</th>
         </tr>
     </table>
 
@@ -76,8 +75,7 @@
                         index: index + 1,
                         name: item.name.first,
                         gender: item.gender,
-                        email: item.email,
-                        id: item.id
+                        email: item.email
                     }
                     return objs;
                 })
@@ -117,12 +115,10 @@
                         var tdName = tr.insertCell(1);
                         var tdGender = tr.insertCell(2);
                         var tdEmail = tr.insertCell(3);
-                        var tdId = tr.insertCell(4);
                         tdNo.innerHTML = item.index;
                         tdName.innerHTML = item.name;
                         tdGender.innerHTML = item.gender;
                         tdEmail.innerHTML = item.email;
-                        tdId.innerHTML = item.id;
                     })
                 }
 
@@ -133,12 +129,10 @@
                     var tdName = tr.insertCell(1);
                     var tdGender = tr.insertCell(2);
                     var tdEmail = tr.insertCell(3);
-                    var tdId = tr.insertCell(4);
                     tdNo.innerHTML = "No";
                     tdName.innerHTML = "Name";
                     tdGender.innerHTML = "Gender";
                     tdEmail.innerHTML = "Email";
-                    tdId.innerHTML = "ID";
                 }
 
                 function firstTable(number) {
@@ -148,16 +142,15 @@
                         var tdName = tr.insertCell(1);
                         var tdGender = tr.insertCell(2);
                         var tdEmail = tr.insertCell(3);
-                        var tdId = tr.insertCell(4);
                         tdNo.innerHTML = item.index;
                         tdName.innerHTML = item.name;
                         tdGender.innerHTML = item.gender;
                         tdEmail.innerHTML = item.email;
-                        tdId.innerHTML = item.id;
                     });
                 };
             });
     </script>
 
 </body>
+
 </html>
