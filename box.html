@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IIFE</title>
+        <style>
+            .box {
+                background: blue;
+                height: 200px;
+                width: 200px;
+                transition: width 2s;
+            }
+            
+            .opening {
+                width: 400px;
+                transition: width 2s;
+            }
+            
+            .inner {
+                display: none;
+            }
+            
+            .box.opening .inner {
+                display: block;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>Box</h1>
+        
+        <div class="box">
+            <div class=""><h1>Hello World</h1></div>
+        </div>
+        
+        <script type="text/javascript">
+            
+            let box = document.querySelector('.box');
+            
+            box.addEventListener('click', function(){
+                this.classList.toggle("opening");
+                setTimeout(() => {
+                    this.children[0].classList.toggle('inner');
+                }, 2000)
+            });
+            
+            
+            const race = "100m race";
+            const racers = ['ali', 'nazish', 'anaya', 'aizah'];
+
+            const winners = racers.map((item, index) => ( {
+                item : item,
+                position: index + 1,
+                race: race
+            }))
+            
+            
+            
+           
+         console.table(winners)
+        
+        
+
+        </script>
+    </body>
+</html>

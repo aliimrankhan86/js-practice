@@ -8,8 +8,8 @@ var b;
 b = a;
 a = 2;
 
-console.log(a);
-console.log(b);
+console.log(a); // 2
+console.log(b); // 3
 
 /**** By Reference ****/
 
