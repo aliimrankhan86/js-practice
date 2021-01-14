@@ -1,0 +1,122 @@
+<p class="offer-title" data-sly-test="${wcmmode.edit}">Deal Timer</p>
+<div id="countdown-wrapper">
+  <div id="enddate">${'MMM dd, yyyy HH:mm:ss' @ format=properties.endtime, type='datetime'}</div>
+  <div class="img-wrapper" data-sly-test="${properties.timerImage}">
+    <img class="img-fluid" src="${properties.timerImage}" />
+  </div>
+  <div class="offer-title">${properties.pretext}</div>
+  <div id="countdown"></div>
+</div>
+
+
+<script>
+var inserteddate = document.getElementById('enddate').innerHTML;
+// Set the date we're counting down to
+
+var countDownDate = new Date(inserteddate).getTime();
+
+var flag = false; /* true for hours only - false for days & hours */
+
+
+// Get today's date and time
+var now2 = new Date().getTime();
+
+
+// Find the distance between now and the count down date
+var distance2 = countDownDate - now2;
+
+
+
+if (distance2 > 0) {
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+
+
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+
+        var hoursx = Math.floor(distance / (1000 * 60 * 60));
+        var minsx = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var secsx = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        var format = (flag == true) ? document.getElementById("countdown").innerHTML = "<div class='hours'>" + "<p>" + hoursx + "</p>" + "<strong>" + ":" + "</strong>" +
+            "<div class='unit'>" + "Hours" + "</div>" + "</div>" +
+
+            "<div class='mins'>" + "<p>" + minsx + "</p>" + "<strong>" + ":" + "</strong>" +
+            "<div class='unit'>" + "Mins" + "</div>" + "</div>" +
+
+            "<div class='secs'>" + "<p>" + secsx + "</p>" +
+            "<div class='unit'>" + "Secs" + "</div>" + "</div>"
+
+
+            :
+            document.getElementById("countdown").innerHTML = "<div class='days'>" + "<p>" + days + "</p>" + "<strong>" +
+            ":" +
+            "</strong>" +
+            "<div class='unit'>" + "Days" + "</div>" + "</div>" +
+
+            "<div class='hours'>" + "<p>" + hours + "</p>" + "<strong>" + ":" + "</strong>" +
+            "<div class='unit'>" + "Hours" + "</div>" + "</div>" +
+
+            "<div class='mins'>" + "<p>" + minutes + "</p>" + "<strong>" + ":" + "</strong>" +
+            "<div class='unit'>" + "Mins" + "</div>" + "</div>" +
+
+            "<div class='secs'>" + "<p>" + seconds + "</p>" +
+            "<div class='unit'>" + "Secs" + "</div>" + "</div>";
+
+
+
+        if (distance < 0) {
+            clearInterval(x);
+            var disabled = (flag == true) ? document.getElementById("countdown").innerHTML = "<div class='disabled'>" +
+
+                "<div class='hours'>" + "<p>" + 00 + "</p>" + "<strong>" + ":" + "</strong>" +
+                "<div class='unit'>" + "Hours" + "</div>" + "</div>" +
+
+                "<div class='mins'>" + "<p>" + 00 + "</p>" + "<strong>" + ":" + "</strong>" +
+                "<div class='unit'>" + "Mins" + "</div>" + "</div>" +
+
+                "<div class='secs'>" + "<p>" + 00 + "</p>" +
+                "<div class='unit'>" + "Secs" + "</div>" + "</div>" +
+
+                "</div>" :
+                document.getElementById("countdown").innerHTML = "<div class='disabled'>" +
+
+                "<div class='days'>" + "<p>" + 00 + "</p>" + "<strong>" +
+                ":" +
+                "</strong>" +
+                "<div class='unit'>" + "Days" + "</div>" + "</div>" +
+
+                "<div class='hours'>" + "<p>" + 00 + "</p>" + "<strong>" + ":" + "</strong>" +
+                "<div class='unit'>" + "Hours" + "</div>" + "</div>" +
+
+                "<div class='mins'>" + "<p>" + 00 + "</p>" + "<strong>" + ":" + "</strong>" +
+                "<div class='unit'>" + "Mins" + "</div>" + "</div>" +
+
+                "<div class='secs'>" + "<p>" + 00 + "</p>" +
+                "<div class='unit'>" + "Secs" + "</div>" + "</div>" +
+
+                "</div>"
+
+        }
+
+    }, 1000);
+} else {
+    $("#countdown-wrapper").hide();
+}
+</script>
